@@ -2,8 +2,8 @@
 
 <package schemaVersion="1.4" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="PACK.xsd">
   <vendor>Qeexo</vendor>
-  <name>AutomlStaticLib</name>
-  <description>Qeexo AutoML Embedded Engine Static Library</description>
+  <name>AutomlEngine</name>
+  <description>Qeexo AutoML Embedded Engine Source Files</description>
   <url>insert_download_url_or_leave_blank</url>
   <supportContact>leo.mo@qeexo.com</supportContact>
   <!-- optional license file -->
@@ -13,8 +13,8 @@
   -->
   
   <releases>
-    <release version="1.0.3">
-      Initial version to test Qeexo AutoML Engine PACK release
+    <release version="1.0.0">
+      Initial version for Qeexo AutoML Engine PACK release
     </release>
   </releases>
 
@@ -24,6 +24,28 @@
     <keyword>AutoML</keyword>
     <keyword>Static Engine Library</keyword>
   </keywords>
+ 
+ <components>
+     <component Cclass="AutoML" Cgroup="EmbeddedML" Csub="Engine" Cversion="1.0.0">
+       <description>Qeexo AutoML EmbeddedML Classify Engine</description>
+       <files>
+         <file category="header" name="Src/predict.h"/>
+         <file category="header" name="Src/QxAutoMLConfig.h" />
+         <file category="header" name="Src/fft_adaptive_binning_strategy.h" />
+         <file category="header" name="Src/QxAutoMLConfig.h" attr="config" version="1.0.0"/>
+         <file category="header" name="Src/QxAutoMLUser.h" attr="config" version="1.0.0"/>
+         <file category="source" name="Src/predict_mcu_oc.c"/>
+         <file category="source" name="Src/predict.c"/>
+         <file category="source" name="Src/QxAutoMLInf.c"/>
+         <file category="source" name="Src/QxAutoMLSensorConfigs.c"/>
+         <file category="source" name="Src/QxClassifyEngine.c"/>
+         <file category="source" name="Src/Utils/fastmath.c"/>
+         <file category="source" name="Src/Utils/qxo_features.c"/>
+       </files>
+     </component>
+     
+ </components>
+ 
  
   <apis>
     <api Cclass="Device" Cgroup="MyAPI" exclusive="0">
@@ -90,27 +112,6 @@
   <!--
   <conditions>
   </conditions>
-  -->
-  
-  <components>
-      <component Cclass="MyClass" Cgroup="MyGroup" Csub="MySubGroup" Cversion="1.0.1">
-        <description>MySWComp</description>
-        <files>
-          <file category="doc"    name="Docs/MySWComp.htm"/>
-          <file category="header" name="MySWComp/header_mylib.h"/>
-          <file category="header" name="MySWComp/config/config_mylib.h" attr="config" version="1.0.0"/>
-          <file category="source" name="MySWComp/mylib_one.c"/>
-          <file category="source" name="MySWComp/mylib_two.c"/>
-
-        </files>
-      </component>
-      
-  </components>
-
-  <!-- component section (optional for all Software Packs)-->
-  <!--
-  <components>
-  </components>
   -->
   
   <!-- optional taxonomy section for defining new component Class and Group names -->
