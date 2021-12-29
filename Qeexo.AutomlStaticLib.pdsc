@@ -13,7 +13,7 @@
   -->
   
   <releases>
-    <release version="1.0.1">
+    <release version="1.0.2">
       Initial version to test Qeexo AutoML Engine PACK release
     </release>
   </releases>
@@ -93,12 +93,12 @@
   -->
   
   <components>
-      <component Cclass="MyClass" Cgroup="MyGroup" Csub="MySubGroup" Cversion="1.0.0" condition="CMSIS Core with RTOS2">
+      <component Cclass="MyClass" Cgroup="MyGroup" Csub="MySubGroup" Cversion="1.0.1" condition="CMSIS Core with RTOS2">
         <description>MySWComp</description>
         <files>
           <file category="doc"    name="Docs/MySWComp.htm"/>
           <file category="header" name="MySWComp/header_mylib.h"/>
-          <file category="header" name="MySWComp/config/config_mylib.h" attr="config" version="1.0.0"/>
+          <file category="header" name="MySWComp/config/config_mylib.h" attr="config" version="1.0.1"/>
           <file category="source" name="MySWComp/mylib_one.c"/>
           <file category="source" name="MySWComp/mylib_two.c"/>
           
