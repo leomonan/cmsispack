@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<package schemaVersion="1.4" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="PACK.xsd">
+  <vendor>Qeexo</vendor>
+  <name>AutomlStaticLib</name>
+  <description>Qeexo AutoML Embedded Engine Static Library</description>
+  <url>insert_download_url_or_leave_blank</url>
+  <supportContact>leo.mo@qeexo.com</supportContact>
+  <!-- optional license file -->
+  <!-- 
+  <license>
+  </license>
+  -->
+  
+  <releases>
+    <release version="1.0.1">
+      Initial version to test Qeexo AutoML Engine PACK release
+    </release>
+  </releases>
+
+  <keywords>
+    <!-- keywords for indexing -->
+    <keyword>Qeexo</keyword>
+    <keyword>AutoML</keyword>
+    <keyword>Static Engine Library</keyword>
+  </keywords>
+ 
+  <apis>
+    <api Cclass="Device" Cgroup="MyAPI" exclusive="0">
+        <description>API for MyAPI</description>
+        <files>
+          <file category="doc"    name="Docs/API/MyAPI.htm"/>
+          <file category="header" name="API/Include/MyAPI.h"/>
+        </files>
+      </api>
+
+  </apis>
+  
+
+  <!-- boards section (mandatory for Board Support Packs) -->
+  <!-- 
+  <boards>
+  </boards>
+  -->
+
+  <!-- devices section (mandatory for Device Family Packs) -->
+  <!--
+  <devices>
+  </devices>
+  -->
+
+  <!-- examples section (optional for all Software Packs)-->
+  <!--
+  <examples>
+  </examples>
+  -->
+
+  <conditions>
+    <condition id="Arm Compiler">
+      <require Tcompiler="ARMCC" Toptions="AC6"/>
+    </condition>
+    <condition id="CM0">
+      <description>Cortex-M0 based device</description>
+      <require condition="Arm Compiler"/>
+      <accept  Dcore="Cortex-M0"/>
+      <accept  Dcore="Cortex-M0+"/>
+    </condition>
+    <condition id="CM3">
+      <description>Cortex-M3 based device</description>
+      <require condition="Arm Compiler"/>
+      <accept  Dcore="Cortex-M3"/>
+    </condition>
+    <condition id="CM4_CM7">
+      <description>Cortex-M4 based device</description>
+      <require condition="Arm Compiler"/>
+      <accept  Dcore="Cortex-M4"/>
+      <accept  Dcore="Cortex-M7"/>
+    </condition>
+    <condition id="CMSIS Core with RTOS2">
+      <description>CMSIS Core with RTOS2 for Cortex-M processor</description>
+      <accept  condition="CM0"/>
+      <accept  condition="CM3"/>
+      <accept  condition="CM4_CM7"/>
+      <require Cclass="CMSIS" Cgroup="CORE"/>
+      <require Cclass="CMSIS" Cgroup="RTOS2"/>
+    </condition>
+  </conditions>
+  
+  <!-- conditions section (optional for all Software Packs)-->
+  <!--
+  <conditions>
+  </conditions>
+  -->
+  
+  <components>
+      <component Cclass="MyClass" Cgroup="MyGroup" Csub="MySubGroup" Cversion="1.0.0" condition="CMSIS Core with RTOS2">
+        <description>MySWComp</description>
+        <files>
+          <file category="doc"    name="Docs/MySWComp.htm"/>
+          <file category="header" name="MySWComp/header_mylib.h"/>
+          <file category="header" name="MySWComp/config/config_mylib.h" attr="config" version="1.0.0"/>
+          <file category="source" name="MySWComp/mylib_one.c"/>
+          <file category="source" name="MySWComp/mylib_two.c"/>
+          
+          <file category="library" condition="CM0"     name="MySWComp/Lib/mylib_cm0.lib"/>
+          <file category="library" condition="CM3"     name="MySWComp/Lib/mylib_cm3.lib"/>
+          <file category="library" condition="CM4_CM7" name="MySWComp/Lib/mylib_cm4.lib"/>
+
+        </files>
+      </component>
+      
+  </components>
+
+  <!-- component section (optional for all Software Packs)-->
+  <!--
+  <components>
+  </components>
+  -->
+  
+  <!-- optional taxonomy section for defining new component Class and Group names -->
+  <!--
+  <taxonomy>
+  </taxonomy>
+  -->
+
+
+</package>
